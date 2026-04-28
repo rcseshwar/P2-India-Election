@@ -41,7 +41,7 @@ function MessageBubble({ message, agents }) {
     <div
       className={`message message-${message.role}`}
       role="article"
-      aria-label={`${message.role === 'user' ? 'You' : 'Chunav Mitra'} said`}
+      aria-label={`${message.role === 'user' ? 'You' : 'Election Buddy'} said`}
     >
       <div className="message-avatar" aria-hidden="true">
         {message.role === 'user' ? '👤' : '🗳️'}
@@ -64,7 +64,7 @@ function MessageBubble({ message, agents }) {
 
 function LoadingBubble() {
   return (
-    <div className="message message-assistant" role="status" aria-label="Chunav Mitra is thinking">
+    <div className="message message-assistant" role="status" aria-label="Election Buddy is thinking">
       <div className="message-avatar" aria-hidden="true">🗳️</div>
       <div className="message-bubble">
         <div className="loading-dots">
@@ -150,7 +150,7 @@ export default function ChatInterface({ messages, onSendMessage, isLoading, agen
           </button>
         </form>
         <p className="chat-disclaimer">
-          Chunav Mitra provides educational information only. Always verify with official ECI sources.
+          Election Buddy 🇮🇳 provides educational information only. Always verify with official ECI sources.
         </p>
       </div>
     </div>

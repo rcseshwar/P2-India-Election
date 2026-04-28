@@ -7,12 +7,12 @@ import { sendMessage, createSession } from './services/api';
 import './App.css';
 
 const AGENTS = [
-  { name: 'election_system_agent', title: 'Election System', icon: '📊', description: "India's multi-level election system", color: '#FF9933' },
-  { name: 'parliament_guide_agent', title: 'Parliament Guide', icon: '🏛️', description: 'Lok Sabha vs Rajya Sabha', color: '#4A90D9' },
-  { name: 'voter_registration_agent', title: 'Voter Registration', icon: '📝', description: 'Register, update, check status', color: '#138808' },
-  { name: 'candidate_info_agent', title: 'Candidate Research', icon: '🔍', description: 'Background & disclosures', color: '#E74C3C' },
-  { name: 'language_assist_agent', title: 'Language Help', icon: '🗣️', description: 'Simple explanations', color: '#9B59B6' },
-  { name: 'voting_day_agent', title: 'Voting Day', icon: '📅', description: 'Polling booth guide', color: '#F39C12' },
+  { name: 'election_system_agent', title: 'Election System 🇮🇳', icon: '📊', description: "India's multi-level election system", color: '#FF9933' },
+  { name: 'parliament_guide_agent', title: 'Parliament Guide 🇮🇳', icon: '🏛️', description: 'Lok Sabha vs Rajya Sabha', color: '#4A90D9' },
+  { name: 'voter_registration_agent', title: 'Voter Registration 🇮🇳', icon: '📝', description: 'Register, update, check status', color: '#138808' },
+  { name: 'candidate_info_agent', title: 'Candidate Research 🇮🇳', icon: '🔍', description: 'Background & disclosures', color: '#E74C3C' },
+  { name: 'language_assist_agent', title: 'Language Help 🇮🇳', icon: '🗣️', description: 'Simple explanations', color: '#9B59B6' },
+  { name: 'voting_day_agent', title: 'Voting Day 🇮🇳', icon: '📅', description: 'Polling booth guide', color: '#F39C12' },
 ];
 
 function App() {
@@ -70,7 +70,7 @@ function App() {
       const errorMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: '🗳️ I apologize, but I\'m having trouble connecting to the server. Please make sure the backend is running and try again.',
+        content: '🇮🇳 I apologize, but I\'m having trouble connecting to the server. Please make sure the backend is running and try again.',
         agent: 'system',
         timestamp: new Date(),
       };
@@ -94,7 +94,7 @@ function App() {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="app" role="application" aria-label="Chunav Mitra - India Election Education Assistant">
+    <div className="app" role="application" aria-label="Election Buddy 🇮🇳 - India Election Education Assistant">
       <Header
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
         onNewChat={handleNewChat}

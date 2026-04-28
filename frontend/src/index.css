@@ -135,6 +135,8 @@ a:hover {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--green);
+  border-top: 2px solid var(--saffron);
 }
 
 .glass-strong {
@@ -142,6 +144,8 @@ a:hover {
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid var(--saffron);
+  border-right: 2px solid var(--green);
 }
 
 /* ── Animations ─────────────────────────────────────────────────────── */

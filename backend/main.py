@@ -53,8 +53,8 @@ async def lifespan(app: FastAPI):
 # ── FastAPI App ─────────────────────────────────────────────────────────
 
 app = FastAPI(
-    title="Chunav Mitra - India Election Education API",
-    description="AI-powered assistant for Indian election process education using Google ADK",
+    title="Election Buddy 🇮🇳 - India Election Education API",
+    description="AI-powered assistant for Indian election process education using Google ADK 🇮🇳",
     version=settings.APP_VERSION,
     lifespan=lifespan,
 )
@@ -319,42 +319,42 @@ async def list_agents():
     agents = [
         {
             "name": "election_system_agent",
-            "title": "Election System Expert",
+            "title": "Election System Expert 🇮🇳",
             "icon": "📊",
             "description": "India's multi-level election system (national, state, local)",
             "topics": ["ECI", "Election phases", "Constitutional framework", "Delimitation"],
         },
         {
             "name": "parliament_guide_agent",
-            "title": "Parliament Guide",
+            "title": "Parliament Guide 🇮🇳",
             "icon": "🏛️",
             "description": "Lok Sabha vs Rajya Sabha, law-making process",
             "topics": ["Lok Sabha", "Rajya Sabha", "Bills", "Joint Sessions", "Government formation"],
         },
         {
             "name": "voter_registration_agent",
-            "title": "Voter Registration Helper",
+            "title": "Voter Registration Helper 🇮🇳",
             "icon": "📝",
             "description": "Register to vote, check status, get e-EPIC",
             "topics": ["NVSP", "Form 6", "e-EPIC", "Eligibility", "BLO verification"],
         },
         {
             "name": "candidate_info_agent",
-            "title": "Candidate Research Advisor",
+            "title": "Candidate Research Advisor 🇮🇳",
             "icon": "🔍",
             "description": "Research candidate backgrounds and disclosures",
             "topics": ["Criminal records", "Asset declarations", "Performance", "MyNeta.info"],
         },
         {
             "name": "language_assist_agent",
-            "title": "Language & Accessibility Guide",
+            "title": "Language & Accessibility Guide 🇮🇳",
             "icon": "🗣️",
-            "description": "Simple explanations and multilingual support",
+            "description": "Simple explanations and expert support",
             "topics": ["EVM guide", "Party symbols", "NOTA", "Braille EVMs"],
         },
         {
             "name": "voting_day_agent",
-            "title": "Voting Day Companion",
+            "title": "Voting Day Companion 🇮🇳",
             "icon": "📅",
             "description": "Polling day preparation and booth procedures",
             "topics": ["Checklist", "Documents", "EVM usage", "VVPAT", "cVIGIL"],

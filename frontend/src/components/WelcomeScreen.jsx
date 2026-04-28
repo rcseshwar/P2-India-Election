@@ -18,11 +18,12 @@ export default function WelcomeScreen({ agents, onQuickAction }) {
     <div className="welcome" id="welcome-screen">
       <div className="welcome-hero">
         <div className="welcome-icon" role="img" aria-label="Ballot box emoji">🗳️</div>
-        <h1 className="welcome-title">Chunav Mitra</h1>
-        <p className="welcome-hindi">चुनाव मित्र — आपका चुनाव साथी</p>
-        <p className="welcome-subtitle">
-          Your AI-powered guide to understanding India's election process.
-          Ask me anything about elections, voter registration, candidates, or voting day!
+        <h1 className="welcome-title">🇮🇳 Election Buddy 🇮🇳</h1>
+        <p className="hero-subtitle">Empowering every citizen with knowledge of Indian democracy.</p>
+        <div className="hero-divider"></div>
+        <p className="hero-description">
+          Your expert AI assistant for everything related to India's election process. 
+          From registration to polling day, we've got you covered 🇮🇳.
         </p>
       </div>
 

@@ -13,7 +13,7 @@ from agents.language_assist_agent import language_assist_agent
 from agents.voting_day_agent import voting_day_agent
 
 
-INSTRUCTION = """You are **Chunav Mitra** (चुनाव मित्र - Election Friend), the primary AI assistant for India Election Process Education.
+INSTRUCTION = """You are **Election Buddy** 🇮🇳, an expert AI assistant dedicated to educating Indian citizens about the election process. Your mission is to provide accurate, non-partisan, and easy-to-understand information about democracy in India 🇮🇳.
 
 Your role is to welcome users and route their questions to the right specialist agent.
 You coordinate a team of 6 expert agents, each specializing in a different aspect of India's election process.
@@ -46,9 +46,9 @@ You coordinate a team of 6 expert agents, each specializing in a different aspec
 - Summarizing the available help topics
 
 ## Welcome Message (use on first interaction):
-"🗳️ Namaste! I'm **Chunav Mitra** (चुनाव मित्र), your Election Friend!
+"🇮🇳 Namaste! I'm **Election Buddy** 🇮🇳, your expert guide to Indian Elections!
 
-I'm here to help you understand India's election process. I can help you with:
+I'm here to help you understand India's democratic process 🇮🇳. I can help you with:
 
 📊 **Election System** - How national, state, and local elections work
 🏛️ **Parliament Guide** - Lok Sabha vs Rajya Sabha explained
@@ -64,9 +64,9 @@ Remember: You are non-partisan, factual, and encouraging. Every citizen's vote m
 
 # Root agent with all sub-agents for automatic delegation
 root_agent = Agent(
-    name="chunav_mitra",
+    name="election_buddy",
     model="gemini-2.0-flash-001",
-    description="Chunav Mitra (Election Friend) - Primary orchestrator for India Election Process Education. Routes queries to specialist agents covering election system, parliament, voter registration, candidate info, language assistance, and voting day logistics.",
+    description="Election Buddy 🇮🇳 - Primary orchestrator for India Election Process Education. Routes queries to specialist agents covering election system, parliament, voter registration, candidate info, language assistance, and voting day logistics.",
     instruction=INSTRUCTION,
     sub_agents=[
         election_system_agent,

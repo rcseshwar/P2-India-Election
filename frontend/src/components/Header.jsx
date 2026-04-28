@@ -16,10 +16,10 @@ export default function Header({ onToggleSidebar, onNewChat, activeAgent, agents
           ☰
         </button>
         <div className="header-logo">
-          <span className="header-logo-icon" role="img" aria-label="Ballot box">🗳️</span>
+          <span className="header-logo-icon" role="img" aria-label="Indian flag">🇮🇳</span>
           <div>
-            <div className="header-title">Chunav Mitra</div>
-            <div className="header-subtitle">चुनाव मित्र — Your Election Friend</div>
+            <div className="header-title">Election Buddy</div>
+            <div className="header-subtitle">Your expert guide to Indian Elections 🇮🇳</div>
           </div>
         </div>
       </div>

@@ -10,7 +10,12 @@
 
 **Election Process Education** — Create an assistant that helps users understand the election process, timelines, and steps in an interactive and easy-to-follow way.
 
-**Chunav Mitra** (चुनाव मित्र — "Election Friend") is a multi-agent AI system built with Google's Agent Development Kit (ADK) that educates Indian citizens about the democratic process through conversational AI.
+**Election Buddy** is a production-ready, AI-powered platform designed to educate Indian citizens about the election process. Built using the **Google Agent Development Kit (ADK)** and **Gemini 2.5 Flash**, it provides a hierarchical multi-agent assistant that can answer complex questions about voter registration, candidate research, parliament procedures, and voting day logistics.
+
+## 🌟 Key Features
+
+*   **Hierarchical Multi-Agent Architecture**: 6 specialist agents orchestrated by a root agent 🇮🇳.
+*   **Premium Glassmorphic UI**: High-performance React frontend with an Indian tricolor design system.
 
 ---
 
