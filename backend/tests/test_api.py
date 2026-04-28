@@ -10,13 +10,13 @@ from fastapi.testclient import TestClient
 def client():
     """Create a test client, mocking external dependencies."""
     # Import with mocking to avoid requiring GCP credentials in tests
-    from unittest.mock import patch, MagicMock
+    from unittest.mock import patch, AsyncMock, MagicMock
 
     with patch("services.firestore_service.firestore_service") as mock_fs:
-        mock_fs.create_session = MagicMock()
-        mock_fs.save_message = MagicMock()
-        mock_fs.get_chat_history = MagicMock(return_value=[])
-        mock_fs.save_feedback = MagicMock()
+        mock_fs.create_session = AsyncMock()
+        mock_fs.save_message = AsyncMock()
+        mock_fs.get_chat_history = AsyncMock(return_value=[])
+        mock_fs.save_feedback = AsyncMock()
 
         from main import app
         with TestClient(app) as c:
@@ -69,3 +69,25 @@ class TestSessionEndpoint:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
+
+class TestHistoryEndpoint:
+    """Tests for /api/history endpoint."""
+    def test_get_history(self, client):
+        response = client.get("/api/history/test-session")
+        assert response.status_code == 200
+        data = response.json()
+        assert "session_id" in data
+        assert "messages" in data
+
+class TestFeedbackEndpoint:
+    """Tests for /api/feedback endpoint."""
+    def test_submit_feedback(self, client):
+        response = client.post("/api/feedback", json={
+            "session_id": "test-session",
+            "message_id": "msg-123",
+            "rating": 5,
+            "comment": "Great!"
+        })
+        assert response.status_code == 200
+        data = response.json()
+        assert data["status"] == "ok"
