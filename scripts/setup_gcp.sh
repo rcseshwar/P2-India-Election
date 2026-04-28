@@ -7,9 +7,9 @@ set -euo pipefail
 PROJECT_ID="p2-india-election"
 REGION="us-central1"
 REPO_NAME="india-election"
-SERVICE_NAME="chunav-mitra-api"
+SERVICE_NAME="election-buddy-api"
 
-echo "🗳️  Setting up GCP resources for Chunav Mitra..."
+echo "🗳️  Setting up GCP resources for Election Buddy..."
 echo "Project: $PROJECT_ID | Region: $REGION"
 
 # Set project

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Deploy Chunav Mitra to Cloud Run
+# Deploy Election Buddy to Cloud Run
 # Usage: ./scripts/deploy.sh
 
 set -euo pipefail
@@ -7,10 +7,10 @@ set -euo pipefail
 PROJECT_ID="p2-india-election"
 REGION="us-central1"
 REPO_NAME="india-election"
-SERVICE_NAME="chunav-mitra-api"
+SERVICE_NAME="election-buddy-api"
 IMAGE="$REGION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$SERVICE_NAME"
 
-echo "🚀 Deploying Chunav Mitra to Cloud Run..."
+echo "🚀 Deploying Election Buddy to Cloud Run..."
 
 # Build and push Docker image
 echo "🔨 Building Docker image..."
@@ -34,7 +34,7 @@ gcloud run deploy "$SERVICE_NAME" \
     --min-instances 0 \
     --max-instances 5 \
     --timeout 300 \
-    --set-env-vars "GOOGLE_CLOUD_PROJECT=$PROJECT_ID,GOOGLE_CLOUD_LOCATION=$REGION,MODEL_ID=gemini-2.0-flash" \
+    --set-env-vars "GOOGLE_CLOUD_PROJECT=$PROJECT_ID,GOOGLE_CLOUD_LOCATION=$REGION,MODEL_ID=gemini-2.0-flash-001,ALLOWED_ORIGINS=*" \
     --quiet
 
 # Get the service URL

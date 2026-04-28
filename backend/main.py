@@ -44,10 +44,10 @@ runner = Runner(
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown events."""
-    logger.info("🗳️  Chunav Mitra backend starting...")
+    logger.info("🇮🇳 Election Buddy backend starting...")
     logger.info("Project: %s | Model: %s", settings.PROJECT_ID, settings.MODEL_ID)
     yield
-    logger.info("Chunav Mitra backend shutting down.")
+    logger.info("Election Buddy backend shutting down.")
 
 
 # ── FastAPI App ─────────────────────────────────────────────────────────
