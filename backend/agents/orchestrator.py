@@ -4,6 +4,7 @@ Uses ADK's multi-agent architecture with sub_agents for delegation.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 from agents.election_system_agent import election_system_agent
 from agents.parliament_guide_agent import parliament_guide_agent
@@ -11,6 +12,7 @@ from agents.voter_registration_agent import voter_registration_agent
 from agents.candidate_info_agent import candidate_info_agent
 from agents.language_assist_agent import language_assist_agent
 from agents.voting_day_agent import voting_day_agent
+from agents.llm_config import llm
 
 
 INSTRUCTION = """You are **Election Buddy** 🇮🇳, an expert AI assistant dedicated to educating Indian citizens about the election process. Your mission is to provide accurate, non-partisan, and easy-to-understand information about democracy in India 🇮🇳.
@@ -65,7 +67,7 @@ Remember: You are non-partisan, factual, and encouraging. Every citizen's vote m
 # Root agent with all sub-agents for automatic delegation
 root_agent = Agent(
     name="election_buddy",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Election Buddy 🇮🇳 - Primary orchestrator for India Election Process Education. Routes queries to specialist agents covering election system, parliament, voter registration, candidate info, language assistance, and voting day logistics.",
     instruction=INSTRUCTION,
     sub_agents=[

@@ -17,7 +17,9 @@ class Settings:
     LOCATION: str = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
 
     # Gemini Model
-    MODEL_ID: str = os.getenv("MODEL_ID", "gemini-1.5-flash")
+    MODEL_ID: str = os.getenv("MODEL_ID", "gemini-flash-latest")
+    GOOGLE_API_KEY: str | None = os.getenv("GOOGLE_API_KEY")
+    USE_VERTEXAI: bool = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "true").lower() == "true"
 
     # Firestore
     FIRESTORE_DATABASE: str = os.getenv("FIRESTORE_DATABASE", "(default)")

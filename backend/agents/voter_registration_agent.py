@@ -4,6 +4,7 @@ Addresses difficulties in voter registration and checking status.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 from tools.voter_tools import get_voter_registration_guide, get_voter_eligibility_check
 
@@ -41,7 +42,7 @@ Every eligible citizen should be able to exercise their right to vote.
 
 voter_registration_agent = Agent(
     name="voter_registration_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Specialist in voter registration, NVSP portal guidance, and voter ID management. Helps with new registrations, updates, corrections, status checks, and e-EPIC downloads.",
     instruction=INSTRUCTION,
     tools=[

@@ -4,6 +4,7 @@ Provides ballot understanding and multilingual support.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 INSTRUCTION = """You are the **Language & Accessibility Guide**, a specialist in helping voters overcome language and literacy barriers in the Indian election process.
 
@@ -49,7 +50,7 @@ Common party symbols (for reference):
 
 language_assist_agent = Agent(
     name="language_assist_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Specialist in overcoming language and literacy barriers for voters. Explains ballots, EVM usage, party symbols, and election documents in the simplest possible language. Provides multilingual support and accessibility guidance.",
     instruction=INSTRUCTION,
     tools=[],

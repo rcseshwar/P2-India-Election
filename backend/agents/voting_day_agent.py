@@ -4,6 +4,7 @@ Addresses issues with queues, polling booth access, and document confusion.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 from tools.candidate_tools import get_voting_day_checklist
 from tools.election_data import get_important_documents_for_voting
@@ -50,7 +51,7 @@ all anxiety about the voting process.
 
 voting_day_agent = Agent(
     name="voting_day_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Companion for polling day logistics. Guides voters through preparation, polling booth procedures, EVM usage, document requirements, queue management, and issue resolution on voting day.",
     instruction=INSTRUCTION,
     tools=[

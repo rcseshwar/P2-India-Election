@@ -1,4 +1,4 @@
-# 🗳️ Chunav Mitra — India Election Process Education Assistant
+# 🗳️ Election Buddy — India Election Process Education Assistant
 
 > **PromptWars 2 | Problem Statement: Election Process Education**
 >
@@ -6,16 +6,24 @@
 
 ---
 
+## 🌐 Live Production Links
+
+*   **Main Application**: [https://election-buddy-ui-d3kidpb2jq-uc.a.run.app](https://election-buddy-ui-d3kidpb2jq-uc.a.run.app)
+
+---
+
 ## 📋 Chosen Vertical
 
 **Election Process Education** — Create an assistant that helps users understand the election process, timelines, and steps in an interactive and easy-to-follow way.
 
-**Election Buddy** is a production-ready, AI-powered platform designed to educate Indian citizens about the election process. Built using the **Google Agent Development Kit (ADK)** and **Gemini 2.5 Flash**, it provides a hierarchical multi-agent assistant that can answer complex questions about voter registration, candidate research, parliament procedures, and voting day logistics.
+**Election Buddy** 🇮🇳 is a production-ready, AI-powered platform designed to educate Indian citizens about the election process. Built using the **Google Agent Development Kit (ADK)** and **Gemini 3 Flash**, it provides a hierarchical multi-agent assistant that can answer complex questions about voter registration, candidate research, parliament procedures, and voting day logistics.
 
 ## 🌟 Key Features
 
 *   **Hierarchical Multi-Agent Architecture**: 6 specialist agents orchestrated by a root agent 🇮🇳.
+*   **Dual-Backend Flexibility**: Supports both **Vertex AI** and **Google AI Studio** (via API Key).
 *   **Premium Glassmorphic UI**: High-performance React frontend with an Indian tricolor design system.
+*   **Real-time Interaction**: Streaming responses (SSE) for a seamless educational experience.
 
 ---
 
@@ -45,7 +53,7 @@ India's election process presents several challenges for citizens:
 ┌──────────────────────▼──────────────────────────┐
 │              FastAPI Backend (Cloud Run)          │
 │  ┌─────────────────────────────────────────┐    │
-│  │     Root Orchestrator (Chunav Mitra)     │    │
+│  │       Root Orchestrator Agent            │    │
 │  │              Google ADK                  │    │
 │  └──┬───┬───┬───┬───┬───┬──────────────────┘    │
 │     │   │   │   │   │   │                        │
@@ -61,18 +69,18 @@ India's election process presents several challenges for citizens:
 │  └──────────┬────────────────┘                    │
 └─────────────┼────────────────────────────────────┘
               │
-    ┌─────────▼─────────┐    ┌──────────────┐
-    │  Cloud Firestore   │    │  Vertex AI   │
-    │  (Sessions, Chat   │    │  Gemini 2.0  │
-    │   History, KB)     │    │  Flash       │
-    └────────────────────┘    └──────────────┘
+    ┌─────────▼─────────┐    ┌──────────────────┐
+    │  Cloud Firestore   │    │  Google AI SDK   │
+    │  (Sessions, Chat   │    │  Gemini 3 Flash  │
+    │   History, KB)     │    │ (API Key/Vertex) │
+    └────────────────────┘    └──────────────────┘
 ```
 
 **Agent Key:** ES=Election System, PG=Parliament Guide, VR=Voter Registration, CI=Candidate Info, LA=Language Assist, VD=Voting Day
 
 ### Multi-Agent Strategy
 
-The system uses **ADK's `sub_agents` architecture** where a root orchestrator agent (`Chunav Mitra`) automatically routes user queries to the most appropriate specialist agent based on the query context. Each agent has:
+The system uses **ADK's `sub_agents` architecture** where a root orchestrator agent (`Election Buddy`) automatically routes user queries to the most appropriate specialist agent based on the query context. Each agent has:
 
 - **Domain-specific instructions** — Expert system prompts tailored to their specialty
 - **Dedicated tools** — Python functions providing structured, factual election data
@@ -102,6 +110,7 @@ User asks question → React Frontend → FastAPI Backend
 
 - **`main.py`** — FastAPI application with REST and SSE streaming endpoints
 - **`agents/orchestrator.py`** — Root agent with 6 sub-agents using `google.adk.agents.Agent`
+- **`agents/llm_config.py`** — Centralized AI configuration for Vertex AI / AI Studio
 - **`agents/*.py`** — 6 specialist agents, each with domain-specific instructions
 - **`tools/*.py`** — Pure Python functions returning structured election data
 - **`services/firestore_service.py`** — Firestore integration for sessions and chat history
@@ -117,10 +126,10 @@ User asks question → React Frontend → FastAPI Backend
 
 | Service | Usage |
 |---------|-------|
-| **Vertex AI / Gemini 2.0 Flash** | LLM backbone for all 6 agents |
+| **Vertex AI / Gemini 3 Flash** | LLM backbone for all 6 agents |
 | **Google ADK** | Agent framework with multi-agent orchestration |
 | **Cloud Firestore** | Session storage, chat history, user feedback |
-| **Cloud Run** | Containerized backend deployment |
+| **Cloud Run** | Containerized backend and frontend deployment |
 | **Cloud Build** | CI/CD pipeline for Docker image builds |
 | **Artifact Registry** | Docker image storage |
 
@@ -132,7 +141,7 @@ User asks question → React Frontend → FastAPI Backend
 |-------|-----------|
 | **Frontend** | React 19, Vite 8, Vanilla CSS |
 | **Backend** | Python 3.12, FastAPI, Uvicorn |
-| **AI/ML** | Google ADK, Gemini 2.0 Flash, Vertex AI |
+| **AI/ML** | Google ADK, Gemini 3 Flash, Vertex AI / AI Studio |
 | **Database** | Cloud Firestore (Native mode) |
 | **Infrastructure** | Docker, Cloud Run, Cloud Build |
 | **Testing** | Pytest, FastAPI TestClient |
@@ -151,7 +160,8 @@ P2-India-Election/
 │   ├── main.py                 # FastAPI entry point
 │   ├── config.py               # Environment configuration
 │   ├── agents/
-│   │   ├── orchestrator.py     # Root agent (Chunav Mitra)
+│   │   ├── orchestrator.py     # Root agent (Election Buddy)
+│   │   ├── llm_config.py       # Centralized AI config
 │   │   ├── election_system_agent.py
 │   │   ├── parliament_guide_agent.py
 │   │   ├── voter_registration_agent.py
@@ -200,6 +210,7 @@ P2-India-Election/
 - Node.js 20+
 - Google Cloud SDK (`gcloud`)
 - GCP Project with billing enabled
+- **Google AI Studio API Key** (optional, for non-Vertex deployments)
 
 ### 1. Setup GCP Resources
 
@@ -215,10 +226,8 @@ cd backend
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env
+# Update .env with GOOGLE_API_KEY
 python main.py
-# API available at http://localhost:8080
-# Docs at http://localhost:8080/docs
 ```
 
 ### 3. Run Frontend Locally
@@ -227,7 +236,6 @@ python main.py
 cd frontend
 npm install
 npm run dev
-# App available at http://localhost:5173
 ```
 
 ### 4. Deploy to Cloud Run

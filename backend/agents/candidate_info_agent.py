@@ -4,6 +4,7 @@ Addresses limited awareness about candidate information.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 from tools.candidate_tools import get_candidate_disclosure_info, get_candidate_check_guide
 
@@ -39,7 +40,7 @@ Key resources to reference:
 
 candidate_info_agent = Agent(
     name="candidate_info_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Advisor on candidate backgrounds, criminal records, financial disclosures, legislative performance, and how to research candidates using official sources like MyNeta.info and PRS India.",
     instruction=INSTRUCTION,
     tools=[

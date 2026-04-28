@@ -33,6 +33,7 @@ gcloud run deploy "$SERVICE_NAME" \
     --cpu 0.5 \
     --min-instances 0 \
     --max-instances 2 \
+    --set-env-vars "GOOGLE_CLOUD_PROJECT=$PROJECT_ID,GOOGLE_CLOUD_LOCATION=$REGION,MODEL_ID=gemini-1.5-flash,ALLOWED_ORIGINS=*,GOOGLE_GENAI_USE_VERTEXAI=FALSE,GOOGLE_API_KEY=YOUR_API_KEY_HERE" \
     --quiet
 
 # Get the service URL

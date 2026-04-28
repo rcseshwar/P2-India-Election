@@ -4,6 +4,8 @@ Handles the complexity of national, state, and local elections under ECI.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
+from agents.llm_config import llm
 
 from tools.election_data import (
     get_election_structure,
@@ -36,7 +38,7 @@ Use these tools to provide accurate information, then explain the data in a user
 
 election_system_agent = Agent(
     name="election_system_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Expert on India's multi-level election system (national, state, local) under the Election Commission of India. Explains election structure, timelines, constitutional framework, and ECI operations.",
     instruction=INSTRUCTION,
     tools=[

@@ -4,6 +4,7 @@ Addresses confusion between the two houses of Parliament.
 """
 
 from google.adk.agents import Agent
+from agents.llm_config import llm
 
 from tools.election_data import compare_lok_sabha_rajya_sabha, get_election_structure
 
@@ -37,7 +38,7 @@ Common questions you should be prepared for:
 
 parliament_guide_agent = Agent(
     name="parliament_guide_agent",
-    model="gemini-1.5-flash",
+    model=llm,
     description="Expert on India's parliamentary system. Clarifies the roles, powers, and differences between Lok Sabha and Rajya Sabha. Explains law-making processes and government formation.",
     instruction=INSTRUCTION,
     tools=[
