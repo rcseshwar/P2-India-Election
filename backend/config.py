@@ -17,7 +17,7 @@ class Settings:
     LOCATION: str = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
 
     # Gemini Model
-    MODEL_ID: str = os.getenv("MODEL_ID", "gemini-2.0-flash-001")
+    MODEL_ID: str = os.getenv("MODEL_ID", "gemini-1.5-flash")
 
     # Firestore
     FIRESTORE_DATABASE: str = os.getenv("FIRESTORE_DATABASE", "(default)")

@@ -39,7 +39,7 @@ Key resources to reference:
 
 candidate_info_agent = Agent(
     name="candidate_info_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Advisor on candidate backgrounds, criminal records, financial disclosures, legislative performance, and how to research candidates using official sources like MyNeta.info and PRS India.",
     instruction=INSTRUCTION,
     tools=[

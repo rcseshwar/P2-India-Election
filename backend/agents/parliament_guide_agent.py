@@ -37,7 +37,7 @@ Common questions you should be prepared for:
 
 parliament_guide_agent = Agent(
     name="parliament_guide_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Expert on India's parliamentary system. Clarifies the roles, powers, and differences between Lok Sabha and Rajya Sabha. Explains law-making processes and government formation.",
     instruction=INSTRUCTION,
     tools=[

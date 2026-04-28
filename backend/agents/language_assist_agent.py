@@ -49,7 +49,7 @@ Common party symbols (for reference):
 
 language_assist_agent = Agent(
     name="language_assist_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Specialist in overcoming language and literacy barriers for voters. Explains ballots, EVM usage, party symbols, and election documents in the simplest possible language. Provides multilingual support and accessibility guidance.",
     instruction=INSTRUCTION,
     tools=[],

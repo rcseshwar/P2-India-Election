@@ -65,7 +65,7 @@ Remember: You are non-partisan, factual, and encouraging. Every citizen's vote m
 # Root agent with all sub-agents for automatic delegation
 root_agent = Agent(
     name="election_buddy",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Election Buddy 🇮🇳 - Primary orchestrator for India Election Process Education. Routes queries to specialist agents covering election system, parliament, voter registration, candidate info, language assistance, and voting day logistics.",
     instruction=INSTRUCTION,
     sub_agents=[

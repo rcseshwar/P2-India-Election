@@ -36,7 +36,7 @@ Use these tools to provide accurate information, then explain the data in a user
 
 election_system_agent = Agent(
     name="election_system_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Expert on India's multi-level election system (national, state, local) under the Election Commission of India. Explains election structure, timelines, constitutional framework, and ECI operations.",
     instruction=INSTRUCTION,
     tools=[

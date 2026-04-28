@@ -50,7 +50,7 @@ all anxiety about the voting process.
 
 voting_day_agent = Agent(
     name="voting_day_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Companion for polling day logistics. Guides voters through preparation, polling booth procedures, EVM usage, document requirements, queue management, and issue resolution on voting day.",
     instruction=INSTRUCTION,
     tools=[

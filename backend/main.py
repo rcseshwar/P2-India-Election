@@ -50,15 +50,7 @@ async def lifespan(app: FastAPI):
     logger.info("Election Buddy backend shutting down.")
 
 
-@app.get("/", tags=["General"])
-async def root():
-    """Root endpoint with welcome message."""
-    return {
-        "message": "Welcome to the Election Buddy 🇮🇳 API",
-        "docs": "/docs",
-        "health": "/health",
-        "status": "online"
-    }
+
 
 
 # ── FastAPI App ─────────────────────────────────────────────────────────
@@ -69,6 +61,16 @@ app = FastAPI(
     version=settings.APP_VERSION,
     lifespan=lifespan,
 )
+
+@app.get("/", tags=["General"])
+async def root():
+    """Root endpoint with welcome message."""
+    return {
+        "message": "Welcome to the Election Buddy 🇮🇳 API",
+        "docs": "/docs",
+        "health": "/health",
+        "status": "online"
+    }
 
 # CORS Middleware
 app.add_middleware(

@@ -41,7 +41,7 @@ Every eligible citizen should be able to exercise their right to vote.
 
 voter_registration_agent = Agent(
     name="voter_registration_agent",
-    model="gemini-2.0-flash-001",
+    model="gemini-1.5-flash",
     description="Specialist in voter registration, NVSP portal guidance, and voter ID management. Helps with new registrations, updates, corrections, status checks, and e-EPIC downloads.",
     instruction=INSTRUCTION,
     tools=[
