@@ -8,7 +8,7 @@
 
 ## 🌐 Live Production Links
 
-*   **Main Application**: [https://election-buddy-ui-d3kidpb2jq-uc.a.run.app](https://election-buddy-ui-d3kidpb2jq-uc.a.run.app)
+*   **Main Application**: [https://election-buddy-ui-485437493911.us-central1.run.app](https://election-buddy-ui-485437493911.us-central1.run.app)
 
 ---
 

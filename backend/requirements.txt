@@ -8,6 +8,7 @@ uvicorn[standard]>=0.32.0
 
 # Google Cloud
 google-cloud-firestore>=2.19.0
+google-cloud-logging>=3.11.3
 google-auth>=2.36.0
 
 # Utilities
